@@ -1,0 +1,68 @@
+<div>
+  <mat-toolbar>
+    <button mat-fab extended [routerLink]="['/create-customer']">
+      <mat-icon>add</mat-icon>
+      Customer
+    </button>
+  </mat-toolbar>
+
+  <div class="customer-table-heading">
+    <caption class="table-caption">
+      Customers
+    </caption>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input
+        matInput
+        placeholder="Search customers..."
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="onSearch($event)"
+      />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <table
+    mat-table
+    [dataSource]="filteredDataSource"
+    class="mat-elevation-z8 clickable-table"
+  >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>#</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef>User Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef>Address</th>
+      <td mat-cell *matCellDef="let element">{{ element.address.city }}</td>
+    </ng-container>
+
+    <tr
+      mat-header-row
+      *matHeaderRowDef="displayedColumns"
+      class="table-heading"
+    ></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      [routerLink]="['/customers', row.id]"
+      class="clickable-row"
+    ></tr>
+  </table>
+</div>

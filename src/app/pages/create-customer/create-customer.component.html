@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="container-wrapper">
+    <h1>Create Customer</h1>
+
+    <form [formGroup]="customerFormGroup" action="" method="post">
+      <div class="form-container">
+        <p>Personal</p>
+        <mat-form-field class="form-field">
+          <mat-icon matPrefix>person</mat-icon>
+          <mat-label>Name</mat-label>
+          <input type="text" formControlName="name" matInput />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-icon matPrefix>perm_identity</mat-icon>
+          <mat-label>Username</mat-label>
+          <input type="text" formControlName="username" matInput />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-icon matPrefix>email</mat-icon>
+          <mat-label>Email</mat-label>
+          <input type="text" formControlName="email" matInput />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-icon matPrefix>phone</mat-icon>
+          <mat-label>Phone Number</mat-label>
+          <input type="text" formControlName="phone" matInput />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-icon matPrefix>website</mat-icon>
+          <mat-label>Website</mat-label>
+          <input type="text" formControlName="website" matInput />
+        </mat-form-field>
+      </div>
+
+      <div class="form-container" formGroupName="address">
+        <p>Address</p>
+
+        <mat-form-field class="form-field">
+          <mat-icon matPrefix>home</mat-icon>
+          <mat-label>Suite</mat-label>
+          <input type="text" formControlName="suite" matInput />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-icon matPrefix>streetview</mat-icon>
+          <mat-label>Street</mat-label>
+          <input type="text" formControlName="street" matInput />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-icon matPrefix>location_city</mat-icon>
+          <mat-label>City</mat-label>
+          <input type="text" formControlName="city" matInput />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-icon matPrefix>code</mat-icon>
+          <mat-label>Zipcode</mat-label>
+          <input type="text" formControlName="zipCode" matInput />
+        </mat-form-field>
+
+        <div formGroupName="geo">
+          <mat-form-field class="form-field">
+            <mat-icon matPrefix>location_on</mat-icon>
+            <mat-label>Longitude</mat-label>
+            <input type="text" formControlName="longitude" matInput />
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <mat-icon matPrefix>location_on</mat-icon>
+            <mat-label>Latitude</mat-label>
+            <input type="text" formControlName="latitude" matInput />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="form-container" formGroupName="company">
+        <p>Company</p>
+
+        <mat-form-field class="form-field">
+          <mat-icon matPrefix>business</mat-icon>
+          <mat-label>Name</mat-label>
+          <input type="text" formControlName="name" matInput />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-icon matPrefix>horizontal_split</mat-icon>
+          <mat-label>Catch Phrase</mat-label>
+          <input type="text" formControlName="catchPhrase" matInput />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-icon matPrefix>label</mat-icon>
+          <mat-label>BS</mat-label>
+          <input type="text" formControlName="bs" matInput />
+        </mat-form-field>
+      </div>
+
+      <div class="btn-container">
+        <button
+          mat-raised-button
+          color="primary"
+          class="submit-button example-icon favorite-icon"
+          aria-label="Example Icon-button with heart icon"
+          type="submit"
+          (click)="submitForm()"
+        >
+          <mat-icon>send</mat-icon>
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

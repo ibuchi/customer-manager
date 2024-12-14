@@ -1,0 +1,83 @@
+<div class="customer-detail-container">
+  <mat-card appearance="outlined" *ngIf="customer" class="customer-card">
+    <mat-card-header class="card-header">
+      <mat-card-title class="cardTitle">{{ customer.name }}</mat-card-title>
+      <mat-card-subtitle class="cardSubTitle">{{
+        customer.email
+      }}</mat-card-subtitle>
+      <div class="actions">
+        <button class="action-btn edit-btn" title="Edit">
+          <mat-icon>
+            <a [routerLink]="['/customers', customer.id, 'edit']">edit</a>
+          </mat-icon>
+        </button>
+        <button
+          class="action-btn delete-btn"
+          title="Delete"
+          (click)="deleteCustomer()"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-card-header>
+    <mat-card-content class="card-content">
+      <div class="info-row">
+        <mat-icon>person</mat-icon><strong>Name:</strong>
+        {{ customer.name }}
+      </div>
+      <div class="info-row">
+        <mat-icon>perm_identity</mat-icon><strong>User Name:</strong>
+        {{ customer.username }}
+      </div>
+      <div class="info-row">
+        <mat-icon>phone</mat-icon><strong>Phone:</strong> {{ customer.phone }}
+      </div>
+      <div class="info-row">
+        <mat-icon>website</mat-icon><strong>Website: </strong>
+        <a
+          href="{{ customer.website }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ customer.website }}
+        </a>
+      </div>
+    </mat-card-content>
+    <mat-card-content class="card-content">
+      <div class="info-row">
+        <mat-icon>home</mat-icon><strong>Suite:</strong>
+        {{ customer.address.suite }}
+      </div>
+      <div class="info-row">
+        <mat-icon>streetview</mat-icon><strong>Street:</strong>
+        {{ customer.address.street }}
+      </div>
+      <div class="info-row">
+        <mat-icon>location_city</mat-icon><strong>City:</strong>
+        {{ customer.address.city }}
+      </div>
+      <div class="info-row">
+        <mat-icon>code</mat-icon><strong>Zipcode: </strong>
+        {{ customer.address.zipcode }}
+      </div>
+      <div class="info-row">
+        <mat-icon>location_on</mat-icon><strong>Geo: </strong>
+        {{ customer.address.geo.lat }}, {{ customer.address.geo.lng }}
+      </div>
+    </mat-card-content>
+    <mat-card-content class="card-content">
+      <div class="info-row">
+        <mat-icon>business</mat-icon><strong>Company Name:</strong>
+        {{ customer.company.name }}
+      </div>
+      <div class="info-row">
+        <mat-icon>horizontal_split</mat-icon><strong>Catch Phrase:</strong>
+        {{ customer.company.catchPhrase }}
+      </div>
+      <div class="info-row">
+        <mat-icon>label</mat-icon><strong>BS:</strong>
+        {{ customer.company.bs }}
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
